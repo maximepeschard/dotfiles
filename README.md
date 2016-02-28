@@ -26,7 +26,6 @@ dotfiles
 │   └── Tomorrow-Night.vim
 └── zsh
     ├── .zshrc
-    ├── local-setup.zsh
     ├── oh-my-zsh
     │   ├── .zshrc
     │   └── agnostermod.zsh-theme
