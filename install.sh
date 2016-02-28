@@ -8,8 +8,9 @@ export APPROPRIATE_ZSHRC
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     # Oh-My-Zsh not installed
     APPROPRIATE_ZSHRC="$DOTFILES_DIR/zsh/.zshrc"
-    ln -fsv "$DOTFILES_DIR/zsh/setup.zsh" ~
-    ln -fsv "$DOTFILES_DIR/zsh/local-setup.zsh" ~
+    mkdir -p "~/.zsh"
+    ln -fsv "$DOTFILES_DIR/zsh/setup.zsh" "~/.zsh"
+    ln -fsv "$DOTFILES_DIR/zsh/local-setup.zsh" "~/.zsh"
 else
     # Oh-My-Zsh installed
     APPROPRIATE_ZSHRC="$DOTFILES_DIR/zsh/oh-my-zsh/.zshrc"
