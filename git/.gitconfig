@@ -1,0 +1,10 @@
+[user]
+	name = Maxime Peschard
+	email = maxime.peschard@gmail.com
+[core]
+	pager = less
+	excludesfile = /Users/maximepeschard/.gitignore_global
+[color]
+	ui = true
+[format]
+	pretty = medium
