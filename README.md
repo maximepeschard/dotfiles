@@ -49,6 +49,7 @@ dotfiles
 │   └── Tomorrow-Night.vim
 └── zsh
     ├── .zshrc
+    ├── history.zsh
     ├── prompt.zsh
     └── setup.zsh
 ~~~
