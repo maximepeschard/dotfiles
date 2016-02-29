@@ -2,20 +2,26 @@
 
 My beloved dotfiles. Feel free to fork or get inspired or hate.
 
+![Screenshot of my custom shell prompt](http://maximepeschard.github.io/images/zshprompt.png)
+
 ## Installation
 
 An `install.sh` script is provided. It takes care of symlinking dotfiles in `~`
 and the Vim theme in `~/.vim/colors`.
 
-If *Oh-My-Zsh* is installed (*ie* `~/.oh-my-zsh` exists, which is currently my
-case), some symlinks are created in the `~/.oh-my-zsh/custom` directory and a
-more approriate `.zshrc` is used.
-Else, a basic `.zshrc` is used and useful scripts are symlinked inside a
-`~/.zsh` directory.
+The script also creates a `~/.zsh` directory if it does not exist yet and
+symlinks there the following setup files :
+* `zsh/setup.zsh`, which contains global setup, useful aliases and functions
+* `zsh/local-setup.zsh` **if it exists**, which is meant to contain local
+  aliases, credentials, etc
+* `prompt.zsh`, which defines a custom prompt
 
-Local stuff (such as aliases meaningful only on a specific host, credentials,
-etc...) can be defined in the `zsh/local-setup.zsh` file, which is ignored by
-Git.
+The custom prompt is *heavily* inspired and adapted both from :
+* the [*Agnoster*
+  theme](https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/agnoster.zsh-theme)
+(and more generally [**Oh-My-Zsh**](https://github.com/robbyrussell/oh-my-zsh))
+* [this blog post](http://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
+  for the *Git* part
 
 ## What's included
 
@@ -32,9 +38,7 @@ dotfiles
 │   └── Tomorrow-Night.vim
 └── zsh
     ├── .zshrc
-    ├── oh-my-zsh
-    │   ├── .zshrc
-    │   └── agnostermod.zsh-theme
+    ├── prompt.zsh
     └── setup.zsh
 ~~~
 
