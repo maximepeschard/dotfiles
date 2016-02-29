@@ -2,6 +2,8 @@
 export EDITOR="vim"
 # Key bindings
 bindkey -e
+bindkey '^b' backward-word
+bindkey '^f' forward-word
 # Completion settings
 autoload -U compinit
 compinit
