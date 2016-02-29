@@ -14,14 +14,19 @@ symlinks there the following setup files :
 * `zsh/setup.zsh`, which contains global setup, useful aliases and functions
 * `zsh/local-setup.zsh` **if it exists**, which is meant to contain local
   aliases, credentials, etc
-* `prompt.zsh`, which defines a custom prompt
+* `zsh/history.zsh`, which contains the command history configuration
+* `zsh/prompt.zsh`, which defines a custom prompt
 
 The custom prompt is *heavily* inspired and adapted from both :
 * the [*Agnoster*
   theme](https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/agnoster.zsh-theme)
-(and more generally [**Oh-My-Zsh**](https://github.com/robbyrussell/oh-my-zsh))
+(and more generally [**Oh My Zsh**](https://github.com/robbyrussell/oh-my-zsh))
 * [this blog post](http://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
-  for the *Git* part
+  for the *Git* part 
+
+The `history.zsh` configuration file is directly taken from [**Oh My
+Zsh**](https://github.com/robbyrussell/oh-my-zsh).
+
 
 ## Usage and local setup
 
