@@ -11,6 +11,7 @@ if [ ! -d "$HOME/.zsh" ]; then
 fi
 ln -fsv "$DOTFILES_DIR/zsh/setup.zsh" "$HOME/.zsh"
 ln -fsv "$DOTFILES_DIR/zsh/local-setup.zsh" "$HOME/.zsh"
+ln -fsv "$DOTFILES_DIR/zsh/history.zsh" "$HOME/.zsh"
 ln -fsv "$DOTFILES_DIR/zsh/prompt.zsh" "$HOME/.zsh"
 # Link .zshrc
 ln -fsv "$ZSHRC_PATH" "$HOME/.zshrc"
