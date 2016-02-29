@@ -12,6 +12,14 @@
 setopt prompt_subst
 autoload -U colors && colors # Enable colors in prompt
 
+# CONTEXT INFO
+# Displays user@host except if user is the defined default user
+context_prompt() {
+    if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+        echo "[%{$fg[blue]%}$USER@%m%{$reset_color%}]"
+    fi
+}
+
 # STATUS INFO
 # Displays error and/or background jobs
 status_prompt() {
@@ -91,5 +99,5 @@ git_prompt_string() {
 }
 
 # PROMPT BUILDING
-PROMPT='$(status_prompt)$(wd_prompt)$(git_prompt_string)%# '
+PROMPT='$(context_prompt)$(status_prompt)$(wd_prompt)$(git_prompt_string)%# '
 

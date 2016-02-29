@@ -23,6 +23,12 @@ The custom prompt is *heavily* inspired and adapted from both :
 * [this blog post](http://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
   for the *Git* part
 
+## Usage and local setup
+
+All the stuff that is relevant only on a specific host should go into a
+`zsh/local-setup.zsh` file. Specifically, the `$DEFAULT_USER` variable should be
+defined there.
+
 ## What's included
 
 ~~~
