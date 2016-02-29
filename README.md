@@ -16,7 +16,7 @@ symlinks there the following setup files :
   aliases, credentials, etc
 * `prompt.zsh`, which defines a custom prompt
 
-The custom prompt is *heavily* inspired and adapted both from :
+The custom prompt is *heavily* inspired and adapted from both :
 * the [*Agnoster*
   theme](https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/agnoster.zsh-theme)
 (and more generally [**Oh-My-Zsh**](https://github.com/robbyrussell/oh-my-zsh))
