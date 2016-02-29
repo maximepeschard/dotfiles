@@ -7,7 +7,7 @@
 #   <https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/agnoster.zsh-theme>
 # Git part adapted from code found at
 #   <http://techanic.net/2012/12/30/my_git_prompt_for_zsh.html>
-#   <https://gist.github.com/1712320>
+#   <https://gist.github.com/joshdick/4415470>
 
 setopt prompt_subst
 autoload -U colors && colors # Enable colors in prompt
