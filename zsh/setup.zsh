@@ -1,5 +1,7 @@
 #### SETUP ####
 export EDITOR="vim"
+# Key bindings
+bindkey -e
 # Completion settings
 autoload -U compinit
 compinit
