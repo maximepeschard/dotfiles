@@ -1,6 +1,6 @@
 # Colored prompt displaying information about :
-# - status (error, root, background jobs)
-# - working directory
+# - status (error and background jobs)
+# - current working directory
 # - Git
 #
 # Status part freely adapted from Agnoster theme for Oh-My-Zsh
@@ -41,8 +41,8 @@ wd_prompt() {
 # Modify the colors and symbols in these variables as desired.
 GIT_BRANCH_SYMBOL=$'\ue0a0'
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}$GIT_BRANCH_SYMBOL%{$reset_color%}"
-GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"
-GIT_PROMPT_BEHIND="%{$fg[cyan]%}BNUM%{$reset_color%}"
+GIT_PROMPT_AHEAD="%{$fg[red]%}NUMA%{$reset_color%}"
+GIT_PROMPT_BEHIND="%{$fg[cyan]%}NUMB%{$reset_color%}"
 GIT_PROMPT_MERGING="%{$fg[magenta]%}⚡︎%{$reset_color%}"
 GIT_PROMPT_UNTRACKED="%{$fg[red]%}?%{$reset_color%}"
 GIT_PROMPT_MODIFIED="%{$fg[yellow]%}±%{$reset_color%}"
