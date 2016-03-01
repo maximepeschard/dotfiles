@@ -1,8 +1,14 @@
 ## Command history configuration
+#
+# Original file from the "Oh My Zsh" framework (link below)
+#   <https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/history.zsh>
+
+# Use .zsh_history for storage
 if [ -z "$HISTFILE" ]; then
     HISTFILE=$HOME/.zsh_history
 fi
 
+# Not so big history
 HISTSIZE=5000
 SAVEHIST=5000
 
