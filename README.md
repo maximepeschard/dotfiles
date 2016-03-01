@@ -34,6 +34,12 @@ All the stuff that is relevant only on a specific host should go into a
 `zsh/local-setup.zsh` file. Specifically, the `$DEFAULT_USER` variable should be
 defined there.
 
+The same thing goes for Git : stuff like user name, etc, should be declared in a
+`git/.gitconfig_local` file.
+
+To apply changes like creating a local file, just (re)run `install.sh`.
+
+
 ## What's included
 
 ~~~
