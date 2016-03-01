@@ -10,7 +10,7 @@ if [ ! -d "$HOME/.zsh" ]; then
     mkdir -p "$HOME/.zsh"
 fi
 ln -fsv "$DOTFILES_DIR/zsh/setup.zsh" "$HOME/.zsh"
-ln -fsv "$DOTFILES_DIR/zsh/local-setup.zsh" "$HOME/.zsh"
+[ -e "$DOTFILES_DIR/zsh/local-setup.zsh" ] && ln -fsv "$DOTFILES_DIR/zsh/local-setup.zsh" "$HOME/.zsh"
 ln -fsv "$DOTFILES_DIR/zsh/history.zsh" "$HOME/.zsh"
 ln -fsv "$DOTFILES_DIR/zsh/prompt.zsh" "$HOME/.zsh"
 # Link .zshrc
@@ -31,4 +31,6 @@ ln -fsv "$DOTFILES_DIR/vim/.vimrc" "$HOME"
 ln -fsv "$DOTFILES_DIR/git/.gitignore_global" "$HOME"
 # Link global .gitconfig
 ln -fsv "$DOTFILES_DIR/git/.gitconfig" "$HOME"
+# Link .gitconfig_local if it exists
+[ -e "$DOTFILES_DIR/git/.gitconfig_local" ] && ln -fsv "$DOTFILES_DIR/git/.gitconfig_local" "$HOME" 
 

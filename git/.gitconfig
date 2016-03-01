@@ -1,6 +1,5 @@
-[user]
-	name = Maxime Peschard
-	email = maxime.peschard@gmail.com
+[include]
+    path = ~/.gitconfig_local
 [core]
 	pager = less
 	excludesfile = ~/.gitignore_global
