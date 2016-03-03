@@ -5,6 +5,9 @@ bindkey -e
 bindkey '^b' backward-word
 bindkey '^f' forward-word
 # Completion settings
+if hash brew 2>/dev/null; then
+    fpath=($HOME/.zsh/func $fpath)
+fi
 autoload -U compinit
 compinit
 zstyle ':completion:*' menu select

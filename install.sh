@@ -13,6 +13,11 @@ ln -fsv "$DOTFILES_DIR/zsh/setup.zsh" "$HOME/.zsh"
 [ -e "$DOTFILES_DIR/zsh/local-setup.zsh" ] && ln -fsv "$DOTFILES_DIR/zsh/local-setup.zsh" "$HOME/.zsh"
 ln -fsv "$DOTFILES_DIR/zsh/history.zsh" "$HOME/.zsh"
 ln -fsv "$DOTFILES_DIR/zsh/prompt.zsh" "$HOME/.zsh"
+# Link Homebrew completion file if installed
+if hash brew 2>/dev/null; then
+    mkdir -p "$HOME/.zsh/func"
+    ln -fsv "$(brew --prefix)/Library/Contributions/brew_zsh_completion.zsh" "$HOME/.zsh/func/_brew"
+fi
 # Link .zshrc
 ln -fsv "$ZSHRC_PATH" "$HOME/.zshrc"
 
