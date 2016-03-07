@@ -7,3 +7,5 @@
 	ui = true
 [format]
 	pretty = medium
+[push]
+    default = simple
