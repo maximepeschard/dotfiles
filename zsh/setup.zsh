@@ -33,6 +33,7 @@ alias gd="git diff"
 alias gst="git status"
 alias glo="git log"
 alias gloo="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias grs="git remote show"
 
 #### RUBY ####
 # Rbenv for Ruby
