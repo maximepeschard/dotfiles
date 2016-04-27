@@ -4,6 +4,9 @@ export EDITOR="vim"
 bindkey -e
 bindkey '^b' backward-word
 bindkey '^f' forward-word
+# Word deletion
+autoload -U select-word-style
+select-word-style bash
 # Completion settings
 if hash brew 2>/dev/null; then
     fpath=($HOME/.zsh/func $fpath)
@@ -55,6 +58,16 @@ function makepdf () {
     filename="$1"
     prefix=${filename%.tex}
     pdflatex $filename && pdflatex $filename && rm -f $prefix.aux $prefix.log $prefix.out $prefix.toc
+}
+
+# TeX to pdf with bibliography
+function pdfbib () {
+    filename="$1"
+    prefix=${filename%.tex}
+    pdflatex $filename &&
+    bibtex $prefix &&
+    makepdf $filename &&
+    rm -f $prefix.bbl $prefix.blg
 }
 
 # Beamer to pdf and remove aux files
