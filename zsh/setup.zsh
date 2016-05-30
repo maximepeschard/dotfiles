@@ -74,6 +74,6 @@ function pdfbib () {
 function makeslides () {
     filename="$1"
     prefix=${filename%.tex}
-    makepdf $filename && rm -f $prefix.nav $prefix.snm
+    makepdf $filename && rm -f $prefix.nav $prefix.snm $prefix.vrb
 }
 
