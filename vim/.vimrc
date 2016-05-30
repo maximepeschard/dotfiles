@@ -15,10 +15,14 @@ set number
 set nowrap
 set textwidth=80
 
-" Highlight current line/col
-set cursorline
-set cursorcolumn
-
 " Status line
 set statusline=%f\ %y%=\ Line:\ %l/%L\ Col:\ %c
 set laststatus=2
+
+" Optional local setup
+try
+    source ~/.vimrc-local
+catch
+    " No local setup : ignore.
+endtry
+

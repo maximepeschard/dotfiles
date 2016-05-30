@@ -30,6 +30,8 @@ fi
 ln -fsv "$DOTFILES_DIR/vim/Tomorrow-Night.vim" "$HOME/.vim/colors"
 # Link vimrc
 ln -fsv "$DOTFILES_DIR/vim/.vimrc" "$HOME"
+# Optionnally link local setup 
+[ -e "$DOTFILES_DIR/vim/.vimrc-local" ] && ln -fsv "$DOTFILES_DIR/vim/.vimrc-local" "$HOME"
 
 # GIT
 # Link global .gitignore
