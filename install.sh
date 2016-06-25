@@ -4,7 +4,6 @@
 export DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # ZSH
-export ZSHRC_PATH="$DOTFILES_DIR/zsh/.zshrc"
 # Store setup files in ~/.zsh directory
 if [ ! -d "$HOME/.zsh" ]; then
     mkdir -p "$HOME/.zsh"
@@ -19,7 +18,7 @@ if hash brew 2>/dev/null; then
     ln -fsv "$(brew --prefix)/share/zsh/site-functions/_brew" "$HOME/.zsh/func/_brew"
 fi
 # Link .zshrc
-ln -fsv "$ZSHRC_PATH" "$HOME/.zshrc"
+ln -fsv "$DOTFILES_DIR/zsh/zshrc" "$HOME/.zshrc"
 
 # VIM
 # Link theme
@@ -29,15 +28,22 @@ if [ ! -d "$HOME/.vim/colors" ]; then
 fi
 ln -fsv "$DOTFILES_DIR/vim/Tomorrow-Night.vim" "$HOME/.vim/colors"
 # Link vimrc
-ln -fsv "$DOTFILES_DIR/vim/.vimrc" "$HOME"
+ln -fsv "$DOTFILES_DIR/vim/vimrc" "$HOME/.vimrc"
 # Optionnally link local setup 
-[ -e "$DOTFILES_DIR/vim/.vimrc-local" ] && ln -fsv "$DOTFILES_DIR/vim/.vimrc-local" "$HOME"
+[ -e "$DOTFILES_DIR/vim/vimrc-local" ] && ln -fsv "$DOTFILES_DIR/vim/vimrc-local" "$HOME/.vimrc-local"
+# Install Vundle
+if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+    # Vundle directory does not exist
+    mkdir -p "$HOME/.vim/bundle"
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
+fi
 
 # GIT
 # Link global .gitignore
-ln -fsv "$DOTFILES_DIR/git/.gitignore_global" "$HOME"
+ln -fsv "$DOTFILES_DIR/git/gitignore-global" "$HOME/.gitignore-global"
 # Link global .gitconfig
-ln -fsv "$DOTFILES_DIR/git/.gitconfig" "$HOME"
+ln -fsv "$DOTFILES_DIR/git/gitconfig" "$HOME/.gitconfig"
 # Link .gitconfig_local if it exists
-[ -e "$DOTFILES_DIR/git/.gitconfig_local" ] && ln -fsv "$DOTFILES_DIR/git/.gitconfig_local" "$HOME" 
+[ -e "$DOTFILES_DIR/git/gitconfig-local" ] && ln -fsv "$DOTFILES_DIR/git/gitconfig-local" "$HOME/.gitconfig-local" 
 

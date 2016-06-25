@@ -1,0 +1,48 @@
+set nocompatible    " required for Vundle
+filetype off        " required for Vundle
+
+" Vundle init
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'   " required, let Vundle manage itself
+
+" Plugin list
+Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'raimondi/delimitmate'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
+
+" Global setup after this -------------------
+filetype plugin indent on
+syntax on
+colorscheme Tomorrow-Night
+
+" Tabs behavior
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" Line numbers on
+set number
+
+" Width
+set nowrap
+set textwidth=80
+
+" Status line
+" set statusline=%f\ %y%=\ Line:\ %l/%L\ Col:\ %c
+set laststatus=2
+let g:lightline = {
+    \ 'colorscheme': 'Tomorrow_Night',
+    \ }
+
+" Optional local setup
+try
+    source ~/.vimrc-local
+catch
+    " No local setup : ignore.
+endtry
+
