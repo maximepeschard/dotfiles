@@ -39,6 +39,9 @@ let g:lightline = {
     \ 'colorscheme': 'Tomorrow_Night',
     \ }
 
+" NERDTree mapping
+noremap <C-N> :<C-U>NERDTreeToggle<CR>
+
 " Optional local setup
 try
     source ~/.vimrc-local
