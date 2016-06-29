@@ -11,6 +11,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'raimondi/delimitmate'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'valloric/youcompleteme'
 
 call vundle#end()
 
