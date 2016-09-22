@@ -4,6 +4,7 @@ export EDITOR="vim"
 bindkey -e
 bindkey '^b' backward-word
 bindkey '^f' forward-word
+bindkey '^[[3~' delete-char
 # Word deletion
 autoload -U select-word-style
 select-word-style bash
@@ -22,21 +23,29 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias la="ls -aGp"
-alias ls="ls -Gp"
-alias ll="ls -lGh"
-alias lla="ls -lGha"
+alias ls="ls -FG"
+alias la="ls -AFG"
+alias ll="ls -FGhl"
+alias lla="ls -AFGhl"
 alias mkdir="mkdir -p"
 alias cdp="cd .."
 alias cdpp="cd ../.."
+alias ..="cd .."
+alias ...="cd ../.."
+alias .....="cd ../../.."
+alias grep="grep --color=auto"
 alias ga="git add"
 alias gaa="git add --all"
 alias gc="git commit -v"
-alias gd="git diff"
 alias gst="git status"
-alias glo="git log"
-alias gloo="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gl="git log"
+alias glp="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gls="glp --stat"
 alias grs="git remote show"
+alias LS="displaywarning 'TURN THAT CAPS LOCK OFF, SIR.' && ls"
+alias LA="displaywarning 'TURN THAT CAPS LOCK OFF, SIR.' && la"
+alias LL="displaywarning 'TURN THAT CAPS LOCK OFF, SIR.' && ll"
+alias LLA="displaywarning 'TURN THAT CAPS LOCK OFF, SIR.' && lla"
 
 #### RUBY ####
 # Rbenv for Ruby
@@ -47,6 +56,14 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 #### UTILITIES ####
+
+function displaywarning () {
+    RED='\033[0;31m'
+    ORANGE='\033[0;33m'
+    NC='\033[0m'
+    TEXT="$@"
+    echo -e "${RED}[!]${NC}\n${RED}[!]${NC} ${ORANGE}${TEXT}${NC}\n${RED}[!]${NC}"
+}
 
 # Create and enter a directory
 function mkcd () {
