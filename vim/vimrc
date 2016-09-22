@@ -74,6 +74,9 @@ let g:lightline = {
 " NERDTree mapping
 noremap <C-N> :<C-U>NERDTreeToggle<CR>
 
+" Enable mouse in all (a) modes
+set mouse=a
+
 " Optional local setup
 try
     source ~/.vimrc-local
