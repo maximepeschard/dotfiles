@@ -99,5 +99,5 @@ git_prompt_string() {
 }
 
 # PROMPT BUILDING
-PROMPT='$(context_prompt)$(status_prompt)$(wd_prompt)$(git_prompt_string)%# '
+PROMPT='$(status_prompt)$(context_prompt)$(wd_prompt)$(git_prompt_string)%# '
 
