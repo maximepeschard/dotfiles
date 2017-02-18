@@ -3,3 +3,9 @@
 
 # Vim
 *.swp
+
+# Python
+.ipynb_checkpoints
+
+# Custom config files
+.no_git_prompt
