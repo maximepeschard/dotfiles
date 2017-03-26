@@ -47,3 +47,10 @@ ln -fsv "$DOTFILES_DIR/git/gitconfig" "$HOME/.gitconfig"
 # Link .gitconfig_local if it exists
 [ -e "$DOTFILES_DIR/git/gitconfig-local" ] && ln -fsv "$DOTFILES_DIR/git/gitconfig-local" "$HOME/.gitconfig-local" 
 
+# TMUX
+# Link tmux.conf
+ln -fsv "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
+# Install TPM if needed (Prefix + I needed after in tmux)
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
