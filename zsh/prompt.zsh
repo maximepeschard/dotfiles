@@ -39,7 +39,7 @@ wd_prompt() {
 
 # GIT INFO
 # Modify the colors and symbols in these variables as desired.
-GIT_BRANCH_SYMBOL=$'\ue0a0'
+GIT_BRANCH_SYMBOL=$'›'
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}$GIT_BRANCH_SYMBOL%{$reset_color%}"
 GIT_PROMPT_AHEAD="%{$fg[red]%}NUMA%{$reset_color%}"
 GIT_PROMPT_BEHIND="%{$fg[cyan]%}NUMB%{$reset_color%}"
@@ -96,7 +96,7 @@ parse_git_state() {
 git_prompt_string() {
   if [ ! -f .no_git_prompt ]; then
     local git_where="$(parse_git_branch)"
-    [ -n "$git_where" ] && echo "[$GIT_PROMPT_SYMBOL %{$fg[yellow]%}${git_where#(refs/heads/|tags/)}%{$reset_color%}$(parse_git_state)]"
+    [ -n "$git_where" ] && echo "[%{$fg[yellow]%}${git_where#(refs/heads/|tags/)}%{$reset_color%}$(parse_git_state)]"
   fi
 }
 
