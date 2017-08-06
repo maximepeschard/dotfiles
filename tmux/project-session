@@ -1,0 +1,25 @@
+# Generic Tmux session for project development
+#
+# This tmux script creates a new session with the name entered by the user at
+# the prompt.
+# Two windows are created :
+# - the first is the "IDE", with a main editor pane and two bottom panes
+#   (eg. for file management, REPL, build tools...)
+# - the second one with a default top htop pane and an empty bottom one
+
+# Session
+new-session
+command-prompt -p "Session name: " "rename-session '%%'"
+
+# Window 1 : main IDE, 2 panes
+rename-window -t 0 IDE
+split-window -p 30
+split-window -h -p 50
+
+# Window 2 : 1 htop pane, 1 empty pane
+new-window -n System htop
+split-window -p 50
+
+# Make window 0, top pane active
+select-window -t IDE
+select-pane -t 0

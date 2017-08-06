@@ -54,3 +54,5 @@ ln -fsv "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+mkdir -p "$HOME/.tmux/sessions-templates"
+ln -fsv "$DOTFILES_DIR/tmux/project-session" "$HOME/.tmux/sessions-templates/project-session"
