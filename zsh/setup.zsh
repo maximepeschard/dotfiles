@@ -23,10 +23,17 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias ls="ls -FG"
-alias la="ls -AFG"
-alias ll="ls -FGhl"
-alias lla="ls -AFGhl"
+case $(uname) in
+    'Linux')
+        alias ls="ls --color=auto -F";;
+    'Darwin')
+        alias ls="ls -FG";;
+    *)
+        alias ls='ls -F';;
+esac
+alias la="ls -A"
+alias ll="ls -hl"
+alias lla="la -hl"
 alias mkdir="mkdir -p"
 alias cdp="cd .."
 alias cdpp="cd ../.."
