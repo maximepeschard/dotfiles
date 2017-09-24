@@ -60,6 +60,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 #### PYTHON ####
 # Pyenv for Python
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# Pyenv-virtualenv
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 #### UTILITIES ####
 
