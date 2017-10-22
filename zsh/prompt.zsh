@@ -27,7 +27,7 @@ status_prompt() {
     local symbols
     symbols=()
     [[ $RETVAL -ne 0 ]] && symbols+="%{$fg[red]%}✘%{$reset_color%}"
-    [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{$fg[cyan]%}⚙%{$reset_color%}"
+    [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{$fg[cyan]%}…%{$reset_color%}"
 
     [[ -n "$symbols" ]] && echo "[$symbols]"
 }
