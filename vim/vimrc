@@ -7,19 +7,26 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'   " required, let Vundle manage itself
 
 " Plugin list
-Plugin 'itchyny/lightline.vim'
-Plugin 'raimondi/delimitmate'
-Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'valloric/youcompleteme'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'raimondi/delimitmate'
+Plugin 'rakr/vim-one'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'tpope/vim-commentary'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 
 " Global setup after this -------------------
 filetype plugin indent on
 syntax on
-colorscheme Tomorrow-Night
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set background=dark
+colorscheme one
 
 " Tabs settings
 set tabstop=4
@@ -38,6 +45,9 @@ set number
 set nowrap
 set textwidth=80
 
+let mapleader = ","
+let maplocalleader = ","
+
 " Quick ESC in insert mode
 imap jj <ESC>
 " Jump to the next row
@@ -45,8 +55,14 @@ map <Down> gj
 map <Up> gk
 nnoremap j gj
 nnoremap k gk
+" Easy navigation with fzf
+set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
 " Easy tab navigation
-nnoremap ;; :tabn<CR>
+nnoremap == :tabn<CR>
 nnoremap ,, :tabp<CR>
 " Open new splits to right and bottom
 set splitbelow
@@ -59,21 +75,21 @@ nnoremap <C-H> <C-W><C-H>
 " Quick split swap
 nnoremap <tab><tab> <C-W>R
 " Break out current window into a new tab
-nnoremap ;n <C-W>T
+" nnoremap :n <C-W>T
+
+" Display tabs and whitespaces
+set listchars=tab:>-,space:·
+" Shift + Tab mapping to show / hide
+noremap <S-Tab> :<C-U>set list!<CR>
+inoremap <S-Tab> <C-O>:set list!<CR>
+cnoremap <S-Tab> <C-C>:set list!<CR>:<Up>
 
 " Search behavior
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-nmap <C-U> :nohlsearch<CR>
-
-" Status line
-" set statusline=%f\ %y%=\ Line:\ %l/%L\ Col:\ %c
-set laststatus=2
-let g:lightline = {
-    \ 'colorscheme': 'Tomorrow_Night',
-    \ }
+nmap <S-Q> :nohlsearch<CR>
 
 " Enable mouse in all (a) modes
 set mouse=a
@@ -81,20 +97,55 @@ set mouse=a
 " Delimitmate
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_error_symbol = '!'
-let g:syntastic_style_error_symbol = '?'
-let g:syntastic_warning_symbol = '>'
-let g:syntastic_style_warning_symbol = '~'
+
+" ALE
+let g:ale_sign_warning = '!'
+let g:ale_sign_error = 'x'
+
+" Lightline
+set laststatus=2
+let g:lightline = {
+\ 'colorscheme': 'one',
+\ 'active': {
+\   'left': [['mode', 'paste'], ['filename', 'modified']],
+\   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+\ },
+\ 'component_expand': {
+\   'linter_warnings': 'LightlineLinterWarnings',
+\   'linter_errors': 'LightlineLinterErrors',
+\   'linter_ok': 'LightlineLinterOK'
+\ },
+\ 'component_type': {
+\   'readonly': 'error',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error'
+\ },
+\ }
+function! LightlineLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+endfunction
+function! LightlineLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+endfunction
+function! LightlineLinterOK() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '✓ ' : ''
+endfunction
+" Update and show lightline but only if it's visible (e.g., not in Goyo)
+autocmd User ALELint call s:MaybeUpdateLightline()
+function! s:MaybeUpdateLightline()
+  if exists('#lightline')
+    call lightline#update()
+  end
+endfunction
 
 " Optional local setup
 try
@@ -102,4 +153,3 @@ try
 catch
     " No local setup : ignore.
 endtry
-
