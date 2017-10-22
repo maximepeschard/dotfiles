@@ -21,12 +21,6 @@ fi
 ln -fsv "$DOTFILES_DIR/zsh/zshrc" "$HOME/.zshrc"
 
 # VIM
-# Link theme
-if [ ! -d "$HOME/.vim/colors" ]; then
-    # Vim directory does not exist
-    mkdir -p "$HOME/.vim/colors"
-fi
-ln -fsv "$DOTFILES_DIR/vim/Tomorrow-Night.vim" "$HOME/.vim/colors"
 # Link vimrc
 ln -fsv "$DOTFILES_DIR/vim/vimrc" "$HOME/.vimrc"
 # Optionnally link local setup 
@@ -56,3 +50,12 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 fi
 mkdir -p "$HOME/.tmux/sessions-templates"
 ln -fsv "$DOTFILES_DIR/tmux/project-session" "$HOME/.tmux/sessions-templates/project-session"
+
+# TERMINAL
+# Get One Dark theme
+if [ ! -d "$DOTFILES_DIR/themes" ]; then
+    mkdir -p "$DOTFILES_DIR/themes"
+fi
+if [ ! -d "$DOTFILES_DIR/themes/atom-one-dark-terminal" ]; then
+    git clone https://github.com/nathanbuchar/atom-one-dark-terminal.git "$DOTFILES_DIR/themes/atom-one-dark-terminal"
+fi

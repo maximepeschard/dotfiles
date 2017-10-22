@@ -1,25 +1,24 @@
 # Maxime's dotfiles
 
-My beloved dotfiles. Feel free to fork or get inspired or hate.
+My (ever changing, *macOS* centered) dotfiles.
 
-![Screenshot of my custom shell prompt](http://maximepeschard.github.io/images/zshprompt.png)
+![Screenshot of my terminal](http://maximepeschard.keybase.pub/static/dotfiles.png)
 
 ## Installation
 
 The `install.sh` script provided takes care of creating directories (like
 `~/.zsh` and `~/.vim`) and symlinking all the files.
 
-The `.zshrc` file just sources the following setup files :
+The `.zshrc` file simply sources the following setup files :
 * `zsh/setup.zsh`, which contains global setup, useful aliases and functions
 * `zsh/local-setup.zsh` **if it exists**, which is meant to contain local
   aliases, credentials, etc
 * `zsh/history.zsh`, which contains the command history configuration
 * `zsh/prompt.zsh`, which defines a custom prompt
 
+## Post-installation
 
-## Usage and local setup
-
-### Local setup
+### Local files
 
 To add local setup (aka stuff relevant only on a specific host), the following
 files should be used :
@@ -30,43 +29,58 @@ files should be used :
 For example, the `$DEFAULT_USER` variable (used for the prompt) can be defined
 in `local-setup.zsh`.
 
-### Apply changes
+**Note that if local files are created after installation, you must run
+`install.sh` again.**
 
-To apply changes (after the creation or modification of a "local" file, for
-example), just run `install.sh` again.
+### Tmux
 
+To install plugins with TPM, start a tmux server and hit `<Ctrl> <Shift-I>`.
+
+### Terminal
+
+To install One Dark theme, import the theme downloaded in `themes` with :
+* on iTerm : `Preferences > Profiles > Default > Colors > Color Presets > Import`
+* on Terminal.app : `Preferences > Profiles > Import`
+* other : ¯\_(ツ)_/¯
+
+### Font
+
+I used to use Menlo as my main font, but recently switched to
+[Iosevka](https://github.com/be5invis/Iosevka). 
 
 ## Credits
 
-The custom prompt is *heavily* inspired and adapted from both :
 * the [*Agnoster*
   theme](https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/agnoster.zsh-theme)
 (and more generally [**Oh My Zsh**](https://github.com/robbyrussell/oh-my-zsh))
 * [this blog post](http://techanic.net/2012/12/30/my_git_prompt_for_zsh.html)
-  for the *Git* part 
+  for the *Git* prompt 
+* [this blog post](https://statico.github.io/vim3.html) for an updated *Vim*
+  configuration
+* many forgotten but really helpful answers on *Stack Overflow*...
 
-The `history.zsh` configuration file is directly taken from [**Oh My
+*NB* : The `history.zsh` configuration file is directly taken from [**Oh My
 Zsh**](https://github.com/robbyrussell/oh-my-zsh).
 
 
 ## Directory structure
 
-~~~
+```
 dotfiles
-├── .gitignore
 ├── LICENSE
 ├── README.md
-├── git
+├── git/
 │   ├── gitconfig
 │   └── gitignore-global
-├── install.sh
-├── vim
-│   ├── Tomorrow-Night.vim
+├── install.sh*
+├── tmux/
+│   ├── project-session
+│   └── tmux.conf
+├── vim/
 │   └── vimrc
-└── zsh
+└── zsh/
     ├── history.zsh
     ├── prompt.zsh
     ├── setup.zsh
     └── zshrc
-~~~
-
+```
