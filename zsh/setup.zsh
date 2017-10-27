@@ -28,7 +28,7 @@ if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
 fi
 # fzf via local installation
 if [ -e ~/.fzf ]; then
-  _append_to_path ~/.fzf/bin
+  PATH=$PATH:~/.fzf/bin
   source ~/.fzf/shell/key-bindings.zsh
   source ~/.fzf/shell/completion.zsh
 fi
