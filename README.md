@@ -1,13 +1,17 @@
 # Maxime's dotfiles
 
-My (ever changing, *macOS* centered) dotfiles.
+My (hopefully) platform-independent dotfiles.
 
 ![Screenshot of my terminal](http://maximepeschard.keybase.pub/static/dotfiles.png)
 
 ## Installation
 
-The `install.sh` script provided takes care of creating directories (like
-`~/.zsh` and `~/.vim`) and symlinking all the files.
+The `install.sh` script provided takes care of :
+* creating "dot" directories in your home (like`~/.zsh` and `~/.vim`)
+* symlinking relevant files
+* installing [Vundle](https://github.com/VundleVim/Vundle.vim) if isn't found
+* installing [TPM](https://github.com/tmux-plugins/tpm) if it isn't found
+* fetching a terminal theme
 
 The `.zshrc` file simply sources the following setup files :
 * `zsh/setup.zsh`, which contains global setup, useful aliases and functions
@@ -34,7 +38,7 @@ in `local-setup.zsh`.
 
 ### Tmux
 
-To install plugins with TPM, start a tmux server and hit `<Ctrl> <Shift-I>`.
+To install plugins with TPM, start a tmux server and hit `<Prefix>` and `<Shift-I>`.
 
 ### Terminal
 
@@ -45,8 +49,7 @@ To install One Dark theme, import the theme downloaded in `themes` with :
 
 ### Font
 
-I used to use Menlo as my main font, but recently switched to
-[Iosevka](https://github.com/be5invis/Iosevka). 
+[Iosevka](https://github.com/be5invis/Iosevka) is nice :thumbsup: 
 
 ## Credits
 
