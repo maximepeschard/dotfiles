@@ -102,4 +102,5 @@ git_prompt_string() {
 
 # PROMPT BUILDING
 PROMPT='$(status_prompt)$(context_prompt)$(wd_prompt)$(git_prompt_string)%# '
+RPROMPT='%*' # 24h time with format: HH:MM:SS
 
