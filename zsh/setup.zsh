@@ -94,3 +94,10 @@ function mkcd () {
     mkdir "$@" && cd "$@"
 }
 
+function when () {
+    date -j -r "$1" +"%Y-%m-%d %H:%M:%S"
+}
+
+function ts () {
+    date -j -f "%Y-%m-%d %H:%M:%S" "$1" +%s
+}
