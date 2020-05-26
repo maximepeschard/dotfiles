@@ -11,6 +11,10 @@ if command -v ccat 1>/dev/null 2>&1
     alias cat="ccat"
 end
 
+# Some useful environment variables
+set -x EDITOR vim
+set -x PAGER less
+
 # Python/Ruby tools.
 if status --is-interactive
     command -v pyenv 1>/dev/null 2>&1; and pyenv init - | source
