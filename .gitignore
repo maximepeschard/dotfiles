@@ -1,4 +1,5 @@
 zsh/local-setup.zsh
+fish/local_config.fish
 git/gitconfig-local
 vim/vimrc-local
 themes
