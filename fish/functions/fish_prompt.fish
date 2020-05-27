@@ -22,6 +22,10 @@ function _long_pwd
 end
 
 function fish_prompt
+    if set -q VIRTUAL_ENV
+        echo -n "("(basename $VIRTUAL_ENV)") "
+    end
+
     if test $status -ne 0
         set_color red
         echo -n "! "
