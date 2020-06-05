@@ -22,11 +22,13 @@ function _long_pwd
 end
 
 function fish_prompt
+    set -l last_status $status
+
     if set -q VIRTUAL_ENV
         echo -n "("(basename $VIRTUAL_ENV)") "
     end
 
-    if test $status -ne 0
+    if test $last_status -ne 0
         set_color red
         echo -n "! "
         set_color normal
