@@ -15,11 +15,10 @@ end
 set -x EDITOR vim
 set -x PAGER less
 
-# Python/Ruby tools.
+# Python
 if status --is-interactive
     command -v pyenv 1>/dev/null 2>&1; and pyenv init - | source
     command -v pyenv-virtualenv-init 1>/dev/null 2>&1; and pyenv virtualenv-init - | source
-    command -v rbenv 1>/dev/null 2>&1; and rbenv init - | source
 end
 
 # If we have a local configuration, load it.
