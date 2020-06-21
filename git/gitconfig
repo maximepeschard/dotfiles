@@ -9,3 +9,5 @@
     pretty = medium
 [push]
     default = simple
+[pull]
+    ff = only
