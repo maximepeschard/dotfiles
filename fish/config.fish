@@ -7,17 +7,17 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias gl="git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias tree="tree -FC"
-if command -v ccat 1>/dev/null 2>&1
-    alias cat="ccat"
-end
+alias pipreset="pip freeze | xargs pip uninstall -y"
 
 # Some useful environment variables
 set -x EDITOR vim
 set -x PAGER less
 
 # Python
+status is-login; and pyenv init --path | source
+pyenv init - | source
 if status --is-interactive
-    command -v pyenv 1>/dev/null 2>&1; and pyenv init - | source
+#    command -v pyenv 1>/dev/null 2>&1; and pyenv init - | source
     command -v pyenv-virtualenv-init 1>/dev/null 2>&1; and pyenv virtualenv-init - | source
 end
 
