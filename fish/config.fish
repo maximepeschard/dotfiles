@@ -13,6 +13,11 @@ alias pipreset="pip freeze | xargs pip uninstall -y"
 set -x EDITOR vim
 set -x PAGER less
 
+# Homebrew
+if test -e /opt/homebrew/bin/brew
+    /opt/homebrew/bin/brew shellenv fish | source
+end
+
 # Python
 status is-login; and pyenv init --path | source
 pyenv init - | source
